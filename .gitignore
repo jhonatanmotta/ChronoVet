@@ -1,0 +1,19 @@
+# Compilados
+build/
+dist/
+
+# NetBeans
+nbproject/private/
+
+# Logs
+*.log
+
+# Temporales
+*.tmp
+
+# Archivos compilados Java
+*.class
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
