@@ -1,19 +1,21 @@
 package modelo;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Mascota {
-     private int idMascota;
+
+    private int idMascota;
     private String nombre;
     private String especie;
     private String raza;
-    private LocalDate fechaNacimiento;
+    private Date fechaNacimiento;
     private int idDueno;
+    private String nombreDueno;
 
     public Mascota() {
     }
 
-    public Mascota(int idMascota, String nombre, String especie, String raza, LocalDate fechaNacimiento, int idDueno) {
+    public Mascota(int idMascota, String nombre, String especie, String raza, Date fechaNacimiento, int idDueno) {
         this.idMascota = idMascota;
         this.nombre = nombre;
         this.especie = especie;
@@ -54,11 +56,11 @@ public class Mascota {
         this.raza = raza;
     }
 
-    public LocalDate getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -69,5 +71,13 @@ public class Mascota {
     public void setIdDueno(int idDueno) {
         this.idDueno = idDueno;
     }
-    
+
+    public String getNombreDueno() {
+        return nombreDueno;
+    }
+
+    public void setNombreDueno(String nombreDueno) {
+        this.nombreDueno = nombreDueno;
+    }
+
 }

@@ -13,6 +13,7 @@ import vista.Menu;
 import vista.Panel_GestionarCitas;
 import vista.Panel_GestionarMascotas;
 import vista.Panel_GestionarUsuarios;
+import vista.Panel_RegistrarCitas;
 import vista.Panel_RegistrarUsuario;
 
 public class Ctrl_menu {
@@ -31,6 +32,16 @@ public class Ctrl_menu {
 
     private Ctrl_usuario ctrlUsuario;
 
+    private Ctrl_gestionUsuarios ctrlGestionUsuarios;
+
+    private Ctrl_Mascota ctrlMascota;
+
+    private Panel_RegistrarCitas panelRegistrarCitas;
+
+    private Ctrl_Cita ctrlCita;
+    
+    private Ctrl_GestionCitas ctrlGestionCita;
+
     public Ctrl_menu(Menu menu) {
 
         this.menu = menu;
@@ -38,9 +49,9 @@ public class Ctrl_menu {
         iniciarPaneles();
 
         iniciarEventos();
-        
+
         validarPermisosMenu();
-        
+
         mostrarPanelInicial();
     }
 
@@ -48,22 +59,41 @@ public class Ctrl_menu {
 
         cardLayout = new CardLayout();
 
+        // aqui debo instarciar los nuevos paneles que agregue
         menu.getPanelVistaPrincipal()
                 .setLayout(cardLayout);
 
         panelRegistrarUsuario
                 = new Panel_RegistrarUsuario();
 
-        ctrlUsuario = new Ctrl_usuario(panelRegistrarUsuario);
+        ctrlUsuario
+                = new Ctrl_usuario(panelRegistrarUsuario);
 
         panelGestionarUsuarios
                 = new Panel_GestionarUsuarios();
 
+        ctrlGestionUsuarios
+                = new Ctrl_gestionUsuarios(panelGestionarUsuarios);
+
         panelGestionarMascotas
                 = new Panel_GestionarMascotas();
 
+        ctrlMascota = new Ctrl_Mascota(
+                panelGestionarMascotas,
+                Sesion.getInstancia().getUsuario()
+        );
+
         panelGestionarCitas
                 = new Panel_GestionarCitas();
+
+        ctrlGestionCita =
+                new Ctrl_GestionCitas(panelGestionarCitas);
+        
+        panelRegistrarCitas
+                = new Panel_RegistrarCitas();
+
+        ctrlCita
+                = new Ctrl_Cita(panelRegistrarCitas);
 
         menu.getPanelVistaPrincipal()
                 .add(panelRegistrarUsuario,
@@ -80,6 +110,10 @@ public class Ctrl_menu {
         menu.getPanelVistaPrincipal()
                 .add(panelGestionarCitas,
                         "GESTION_CITAS");
+
+        menu.getPanelVistaPrincipal()
+                .add(panelRegistrarCitas,
+                        "REGISTRAR_CITA");
     }
 
     private void iniciarEventos() {
@@ -93,16 +127,21 @@ public class Ctrl_menu {
                 .addActionListener(e
                         -> mostrarGestionUsuarios()
                 );
-        
+
         menu.getGestionarMascotas()
-            .addActionListener(e
-                    -> mostrarGestionMascotas()
-            );
+                .addActionListener(e
+                        -> mostrarGestionMascotas()
+                );
 
         menu.getGestionarCitas()
-            .addActionListener(e
-                    -> mostrarGestionCitas()
-            );
+                .addActionListener(e
+                        -> mostrarGestionCitas()
+                );
+
+        menu.getRegistrarCita()
+                .addActionListener(
+                        e -> mostrarRegistrarCita()
+                );
     }
 
     private void mostrarRegistrarUsuario() {
@@ -113,83 +152,103 @@ public class Ctrl_menu {
     }
 
     private void mostrarGestionUsuarios() {
+        
+        ctrlGestionUsuarios.recargarTabla();
+        
         cardLayout.show(
                 menu.getPanelVistaPrincipal(),
                 "GESTION_USUARIOS"
         );
     }
-    
+
     private void mostrarGestionMascotas() {
-    cardLayout.show(
-            menu.getPanelVistaPrincipal(),
-            "GESTION_MASCOTAS"
-    );
-}
-    
+        
+        ctrlMascota.recargarDatos();
+        
+        cardLayout.show(
+                menu.getPanelVistaPrincipal(),
+                "GESTION_MASCOTAS"
+        );
+    }
+
+    private void mostrarRegistrarCita() {
+        cardLayout.show(
+                menu.getPanelVistaPrincipal(),
+                "REGISTRAR_CITA"
+        );
+    }
+
     private void mostrarGestionCitas() {
-    cardLayout.show(
-            menu.getPanelVistaPrincipal(),
-            "GESTION_CITAS"
-    );
-}
+        
+        ctrlGestionCita.recargarTabla();
+        
+        cardLayout.show(
+                menu.getPanelVistaPrincipal(),
+                "GESTION_CITAS"
+        );
+    }
 
     private void mostrarPanelInicial() {
 
-    Usuario usuario = Sesion.getInstancia().getUsuario();
+        Usuario usuario = Sesion.getInstancia().getUsuario();
 
-    String rol = usuario.getRol();
+        String rol = usuario.getRol();
 
-    switch(rol) {
+        switch (rol) {
 
-        case "Administrador":
+            case "Administrador":
 
-            cardLayout.show(
-                menu.getPanelVistaPrincipal(),
-                "GESTION_USUARIOS"
-            );
+                cardLayout.show(
+                        menu.getPanelVistaPrincipal(),
+                        "GESTION_USUARIOS"
+                );
 
-            break;
+                break;
 
-        case "Administrativo":
+            case "Administrativo":
 
-            cardLayout.show(
-                menu.getPanelVistaPrincipal(),
-                "GESTION_USUARIOS"
-            );
+                cardLayout.show(
+                        menu.getPanelVistaPrincipal(),
+                        "GESTION_USUARIOS"
+                );
 
-            break;
+                break;
 
-        case "Cliente":
+            case "Cliente":
 
-            cardLayout.show(
-                menu.getPanelVistaPrincipal(),
-                "GESTION_MASCOTAS"
-            );
+                cardLayout.show(
+                        menu.getPanelVistaPrincipal(),
+                        "GESTION_MASCOTAS"
+                );
 
-            break;
+                break;
 
-        case "Veterinario":
+            case "Veterinario":
 
-            cardLayout.show(
-                menu.getPanelVistaPrincipal(),
-                "GESTION_CITAS"
-            );
+                cardLayout.show(
+                        menu.getPanelVistaPrincipal(),
+                        "GESTION_CITAS"
+                );
 
-            break;
+                break;
+        }
     }
-}
-    
+
     private void validarPermisosMenu() {
 
-    Usuario usuario = Sesion.getInstancia().getUsuario();
+        Usuario usuario = Sesion.getInstancia().getUsuario();
 
-    String rol = usuario.getRol();
+        String rol = usuario.getRol();
 
-    if(!rol.equals("Administrador")
-       &&
-       !rol.equals("Administrativo")) {
+        if (!rol.equals("Administrador")
+                && !rol.equals("Administrativo")) {
 
-        menu.getMenuUsuarios().setVisible(false);
+            menu.getMenuUsuarios().setVisible(false);
+        }
+        if (rol.equals("Veterinario")) {
+
+            menu.getRegistrarCita()
+                    .setVisible(false);
+        }
     }
-}
 }

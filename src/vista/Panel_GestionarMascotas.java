@@ -4,6 +4,12 @@
  */
 package vista;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author jhona
@@ -17,6 +23,45 @@ public class Panel_GestionarMascotas extends javax.swing.JPanel {
         initComponents();
     }
 
+    public JComboBox getComboPropietario() {
+        return comboPropietario;
+    }
+    
+     public JComboBox getComboEspecie() {
+        return comboEspecie;
+    }
+    
+    public JTextField getTextNombre() {
+        return textNombre;
+    }
+
+    public JTextField getTextRaza() {
+        return textRaza;
+    }
+    
+    public JLabel getLabelPropietario() {
+        return labelPropietario;
+    }
+    
+    public JTextField getTextFecha() {
+        return textFecha;
+    }
+
+    public JButton getBtn_limpiarMascota() {
+        return btn_limpiarMascota;
+    }
+    
+    public JButton getBtn_resgistrarMascota() {
+        return btn_registrarMascota;
+    }
+
+    public JButton getBtn_actualizarMascota() {
+        return btn_editarMascota;
+    }
+    
+    public JTable getTablaMascotas() {
+        return tablaMascota;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,30 +71,205 @@ public class Panel_GestionarMascotas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        labelNombre = new javax.swing.JLabel();
+        textNombre = new javax.swing.JTextField();
+        labelPropietario = new javax.swing.JLabel();
+        textRaza = new javax.swing.JTextField();
+        labelCorreo = new javax.swing.JLabel();
+        comboEspecie = new javax.swing.JComboBox<>();
+        jScrollMascota = new javax.swing.JScrollPane();
+        tablaMascota = new javax.swing.JTable();
+        btn_editarMascota = new javax.swing.JButton();
+        btn_limpiarMascota = new javax.swing.JButton();
+        btn_registrarMascota = new javax.swing.JButton();
+        labelApellido1 = new javax.swing.JLabel();
+        comboPropietario = new javax.swing.JComboBox<>();
+        textFecha = new javax.swing.JTextField();
+        labelCorreo1 = new javax.swing.JLabel();
 
-        jLabel1.setText("Aqui ira la gestion de mascotas");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestion de Mascotas"));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        labelNombre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelNombre.setForeground(new java.awt.Color(51, 51, 51));
+        labelNombre.setText("Nombre");
+        jPanel1.add(labelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, 30));
+
+        textNombre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        textNombre.setForeground(new java.awt.Color(51, 51, 51));
+        textNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNombreActionPerformed(evt);
+            }
+        });
+        textNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textNombreKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textNombreKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 240, 30));
+
+        labelPropietario.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelPropietario.setForeground(new java.awt.Color(51, 51, 51));
+        labelPropietario.setText("Propietario");
+        jPanel1.add(labelPropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, 30));
+
+        textRaza.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        textRaza.setForeground(new java.awt.Color(51, 51, 51));
+        textRaza.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textRazaKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 240, 30));
+
+        labelCorreo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelCorreo.setForeground(new java.awt.Color(51, 51, 51));
+        labelCorreo.setText("Fecha de Nacimiento:");
+        jPanel1.add(labelCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, -1, 30));
+
+        comboEspecie.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel1.add(comboEspecie, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 190, 30));
+
+        tablaMascota.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        tablaMascota.setForeground(new java.awt.Color(51, 51, 51));
+        tablaMascota.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nombre", "Especie", "Raza", "Fecha Nacimiento", "Propietario"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaMascota.setRowHeight(30);
+        tablaMascota.setSelectionBackground(new java.awt.Color(191, 232, 241));
+        tablaMascota.getTableHeader().setResizingAllowed(false);
+        tablaMascota.getTableHeader().setReorderingAllowed(false);
+        jScrollMascota.setViewportView(tablaMascota);
+
+        jPanel1.add(jScrollMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 1000, 380));
+
+        btn_editarMascota.setBackground(new java.awt.Color(0, 161, 199));
+        btn_editarMascota.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btn_editarMascota.setForeground(new java.awt.Color(255, 255, 255));
+        btn_editarMascota.setText("Editar");
+        jPanel1.add(btn_editarMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 100, 30));
+
+        btn_limpiarMascota.setBackground(new java.awt.Color(0, 161, 199));
+        btn_limpiarMascota.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btn_limpiarMascota.setForeground(new java.awt.Color(255, 255, 255));
+        btn_limpiarMascota.setText("Limpiar");
+        btn_limpiarMascota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limpiarMascotaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_limpiarMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 150, 100, 30));
+
+        btn_registrarMascota.setBackground(new java.awt.Color(0, 161, 199));
+        btn_registrarMascota.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btn_registrarMascota.setForeground(new java.awt.Color(255, 255, 255));
+        btn_registrarMascota.setText("Registrar");
+        jPanel1.add(btn_registrarMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 100, 30));
+
+        labelApellido1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelApellido1.setForeground(new java.awt.Color(51, 51, 51));
+        labelApellido1.setText("Raza");
+        jPanel1.add(labelApellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, 30));
+
+        comboPropietario.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel1.add(comboPropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 190, 30));
+
+        textFecha.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        textFecha.setForeground(new java.awt.Color(51, 51, 51));
+        textFecha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textFechaKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, 230, 30));
+
+        labelCorreo1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelCorreo1.setForeground(new java.awt.Color(51, 51, 51));
+        labelCorreo1.setText("Especie");
+        jPanel1.add(labelCorreo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(136, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(130, 130, 130))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1054, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(jLabel1)
-                .addContainerGap(201, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void textNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNombreActionPerformed
+
+    private void textNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNombreKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNombreKeyPressed
+
+    private void textNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNombreKeyTyped
+        //        if (textNombre.getText().length() >= 30) {
+            //            evt.consume();
+            //        }
+        //        if (!(Character.isLetter(evt.getKeyChar())) && !(evt.getKeyChar() == KeyEvent.VK_SPACE)) {
+            //            evt.consume();
+            //        }
+    }//GEN-LAST:event_textNombreKeyTyped
+
+    private void textRazaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textRazaKeyTyped
+        //        if (textApellido.getText().length() >= 30) {
+            //            evt.consume();
+            //        }
+        //        if (!(Character.isLetter(evt.getKeyChar())) && !(evt.getKeyChar() == KeyEvent.VK_SPACE)) {
+            //            evt.consume();
+            //        }
+    }//GEN-LAST:event_textRazaKeyTyped
+
+    private void btn_limpiarMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarMascotaActionPerformed
+
+    }//GEN-LAST:event_btn_limpiarMascotaActionPerformed
+
+    private void textFechaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textFechaKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFechaKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JButton btn_editarMascota;
+    public javax.swing.JButton btn_limpiarMascota;
+    public javax.swing.JButton btn_registrarMascota;
+    public javax.swing.JComboBox<Object> comboEspecie;
+    public javax.swing.JComboBox<Object> comboPropietario;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollMascota;
+    private javax.swing.JLabel labelApellido1;
+    private javax.swing.JLabel labelCorreo;
+    private javax.swing.JLabel labelCorreo1;
+    private javax.swing.JLabel labelNombre;
+    private javax.swing.JLabel labelPropietario;
+    public javax.swing.JTable tablaMascota;
+    public javax.swing.JTextField textFecha;
+    public javax.swing.JTextField textNombre;
+    public javax.swing.JTextField textRaza;
     // End of variables declaration//GEN-END:variables
 }

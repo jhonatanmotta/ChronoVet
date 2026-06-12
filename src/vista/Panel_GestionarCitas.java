@@ -1,22 +1,62 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package vista;
 
-/**
- *
- * @author jhona
- */
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+
 public class Panel_GestionarCitas extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Panel_GestionarCitas
-     */
     public Panel_GestionarCitas() {
         initComponents();
     }
 
+    public JTextArea getTextMotivo() {
+        return textAreaMotivo;
+    }
+    
+    public JTextField getTextMascota() {
+        return textMascota;
+    }
+    
+    public JTextField getTextEspecialidad() {
+        return textEspecialidad;
+    }
+    
+    public JTextField getTextCliente() {
+        return textCliente;
+    }
+    
+    public JTextField getTextEstado() {
+        return textEstado;
+    }
+    
+    public JTextField getTextFechaYHora() {
+        return textFechaYHora;
+    }
+    
+    public JTextField getTextVeterinario() {
+        return textProfesional;
+    }
+    
+    public JTextField getTextIdCita() {
+        return textIdCita;
+    }
+
+    public JButton getBtnAccionCita() {
+        return btnDinamico;
+    }
+    
+    public JButton getBtnLimpiar() {
+        return btnLimpiar;
+    }
+
+    public JTable getTablaCitas() {
+        return tablaCita;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,30 +66,241 @@ public class Panel_GestionarCitas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollTable = new javax.swing.JScrollPane();
+        tablaCita = new javax.swing.JTable();
+        labelEspecialidad = new javax.swing.JLabel();
+        labelMotivoConsulta = new javax.swing.JLabel();
+        labelFecha = new javax.swing.JLabel();
+        jScrollPane = new javax.swing.JScrollPane();
+        textAreaMotivo = new javax.swing.JTextArea();
+        textEspecialidad = new javax.swing.JTextField();
+        textMascota = new javax.swing.JTextField();
+        labelCliente = new javax.swing.JLabel();
+        textEstado = new javax.swing.JTextField();
+        labelFechaYHora = new javax.swing.JLabel();
+        textFechaYHora = new javax.swing.JTextField();
+        textProfesional = new javax.swing.JTextField();
+        labelProfesional = new javax.swing.JLabel();
+        btnDinamico = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        labelMascota = new javax.swing.JLabel();
+        textCliente = new javax.swing.JTextField();
+        textIdCita = new javax.swing.JTextField();
 
-        jLabel1.setText("Aqui ira la gestion de citas");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestion de Citas"));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tablaCita.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        tablaCita.setForeground(new java.awt.Color(51, 51, 51));
+        tablaCita.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Cita", "Mascota", "Cliente", "Veterinario", "Especialidad", "Fecha y Hora", "Estado"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaCita.setRowHeight(30);
+        tablaCita.setSelectionBackground(new java.awt.Color(191, 232, 241));
+        tablaCita.getTableHeader().setResizingAllowed(false);
+        tablaCita.getTableHeader().setReorderingAllowed(false);
+        jScrollTable.setViewportView(tablaCita);
+
+        jPanel1.add(jScrollTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 1000, 380));
+
+        labelEspecialidad.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelEspecialidad.setForeground(new java.awt.Color(51, 51, 51));
+        labelEspecialidad.setText("Especialidad:");
+        jPanel1.add(labelEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, 30));
+
+        labelMotivoConsulta.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelMotivoConsulta.setForeground(new java.awt.Color(51, 51, 51));
+        labelMotivoConsulta.setText("Motivo de consulta:");
+        jPanel1.add(labelMotivoConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, 30));
+
+        labelFecha.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelFecha.setForeground(new java.awt.Color(51, 51, 51));
+        labelFecha.setText("Cita Numero:");
+        jPanel1.add(labelFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, 30));
+
+        textAreaMotivo.setColumns(20);
+        textAreaMotivo.setRows(5);
+        jScrollPane.setViewportView(textAreaMotivo);
+
+        jPanel1.add(jScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 340, 110));
+
+        textEspecialidad.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        textEspecialidad.setForeground(new java.awt.Color(51, 51, 51));
+        textEspecialidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textEspecialidadKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 230, 30));
+
+        textMascota.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        textMascota.setForeground(new java.awt.Color(51, 51, 51));
+        textMascota.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textMascotaKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 230, 30));
+
+        labelCliente.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelCliente.setForeground(new java.awt.Color(51, 51, 51));
+        labelCliente.setText("Cliente:");
+        jPanel1.add(labelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, 30));
+
+        textEstado.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        textEstado.setForeground(new java.awt.Color(51, 51, 51));
+        textEstado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textEstadoKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, 120, 30));
+
+        labelFechaYHora.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelFechaYHora.setForeground(new java.awt.Color(51, 51, 51));
+        labelFechaYHora.setText("Fecha y hora:");
+        jPanel1.add(labelFechaYHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, 30));
+
+        textFechaYHora.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        textFechaYHora.setForeground(new java.awt.Color(51, 51, 51));
+        textFechaYHora.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textFechaYHoraKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textFechaYHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 240, 30));
+
+        textProfesional.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        textProfesional.setForeground(new java.awt.Color(51, 51, 51));
+        textProfesional.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textProfesionalKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textProfesional, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 240, 30));
+
+        labelProfesional.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelProfesional.setForeground(new java.awt.Color(51, 51, 51));
+        labelProfesional.setText("Profesional:");
+        jPanel1.add(labelProfesional, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, 30));
+
+        btnDinamico.setBackground(new java.awt.Color(255, 51, 51));
+        btnDinamico.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnDinamico.setForeground(new java.awt.Color(255, 255, 255));
+        btnDinamico.setText("Cancelar cita");
+        jPanel1.add(btnDinamico, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 200, 140, 30));
+
+        btnLimpiar.setBackground(new java.awt.Color(0, 161, 199));
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiar.setText("Limpiar Campos");
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 200, 140, 30));
+
+        labelMascota.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelMascota.setForeground(new java.awt.Color(51, 51, 51));
+        labelMascota.setText("Mascota:");
+        jPanel1.add(labelMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 30));
+
+        textCliente.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        textCliente.setForeground(new java.awt.Color(51, 51, 51));
+        textCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textClienteKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 240, 30));
+
+        textIdCita.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        textIdCita.setForeground(new java.awt.Color(51, 51, 51));
+        textIdCita.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textIdCitaKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textIdCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 70, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jLabel1)
-                .addContainerGap(139, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1030, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(jLabel1)
-                .addContainerGap(156, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void textEspecialidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textEspecialidadKeyTyped
+        //        if (textApellido.getText().length() >= 30) {
+            //            evt.consume();
+            //        }
+        //        if (!(Character.isLetter(evt.getKeyChar())) && !(evt.getKeyChar() == KeyEvent.VK_SPACE)) {
+            //            evt.consume();
+            //        }
+    }//GEN-LAST:event_textEspecialidadKeyTyped
+
+    private void textMascotaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textMascotaKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textMascotaKeyTyped
+
+    private void textEstadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textEstadoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textEstadoKeyTyped
+
+    private void textFechaYHoraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textFechaYHoraKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFechaYHoraKeyTyped
+
+    private void textProfesionalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textProfesionalKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textProfesionalKeyTyped
+
+    private void textClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textClienteKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textClienteKeyTyped
+
+    private void textIdCitaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textIdCitaKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textIdCitaKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JButton btnDinamico;
+    public javax.swing.JButton btnLimpiar;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JScrollPane jScrollTable;
+    private javax.swing.JLabel labelCliente;
+    private javax.swing.JLabel labelEspecialidad;
+    private javax.swing.JLabel labelFecha;
+    private javax.swing.JLabel labelFechaYHora;
+    private javax.swing.JLabel labelMascota;
+    private javax.swing.JLabel labelMotivoConsulta;
+    private javax.swing.JLabel labelProfesional;
+    public javax.swing.JTable tablaCita;
+    private javax.swing.JTextArea textAreaMotivo;
+    public javax.swing.JTextField textCliente;
+    public javax.swing.JTextField textEspecialidad;
+    public javax.swing.JTextField textEstado;
+    public javax.swing.JTextField textFechaYHora;
+    public javax.swing.JTextField textIdCita;
+    public javax.swing.JTextField textMascota;
+    public javax.swing.JTextField textProfesional;
     // End of variables declaration//GEN-END:variables
 }

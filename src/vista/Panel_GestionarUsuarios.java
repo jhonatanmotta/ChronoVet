@@ -4,6 +4,12 @@
  */
 package vista;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JPasswordField;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author jhona
@@ -17,6 +23,38 @@ public class Panel_GestionarUsuarios extends javax.swing.JPanel {
         initComponents();
     }
 
+    public JComboBox getComboEstado() {
+        return comboEstado;
+    }
+    
+    public JTextField getTextNombre() {
+        return textNombre;
+    }
+
+    public JTextField getTextApellido() {
+        return textApellido;
+    }
+
+    public JTextField getTextCorreo() {
+        return textCorreo;
+    }
+
+    public JTextField getTextTelefono() {
+        return textTelefono;
+    }
+
+    public JButton getBtn_limpiarUsuario() {
+        return btn_limpiarUsuario;
+    }
+
+    public JButton getBtn_actualizarUsuario() {
+        return btn_editarUsuario;
+    }
+    
+    public JTable getTablaUsuarios() {
+        return tablaUsuarios;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,30 +64,229 @@ public class Panel_GestionarUsuarios extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        textNombre = new javax.swing.JTextField();
+        labelNombre = new javax.swing.JLabel();
+        labelApellido = new javax.swing.JLabel();
+        textApellido = new javax.swing.JTextField();
+        labelCorreo = new javax.swing.JLabel();
+        textCorreo = new javax.swing.JTextField();
+        labelTelefono = new javax.swing.JLabel();
+        textTelefono = new javax.swing.JTextField();
+        btn_editarUsuario = new javax.swing.JButton();
+        btn_limpiarUsuario = new javax.swing.JButton();
+        jScrollUsuario = new javax.swing.JScrollPane();
+        tablaUsuarios = new javax.swing.JTable();
+        labelRol1 = new javax.swing.JLabel();
+        comboEstado = new javax.swing.JComboBox<>();
 
-        jLabel1.setText("gestionar usuarios");
+        setPreferredSize(new java.awt.Dimension(1080, 700));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestion de Usuarios"));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        textNombre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        textNombre.setForeground(new java.awt.Color(51, 51, 51));
+        textNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNombreActionPerformed(evt);
+            }
+        });
+        textNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textNombreKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textNombreKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 240, 30));
+
+        labelNombre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelNombre.setForeground(new java.awt.Color(51, 51, 51));
+        labelNombre.setText("Nombre");
+        jPanel1.add(labelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, 30));
+
+        labelApellido.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelApellido.setForeground(new java.awt.Color(51, 51, 51));
+        labelApellido.setText("Apellido");
+        jPanel1.add(labelApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, 30));
+
+        textApellido.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        textApellido.setForeground(new java.awt.Color(51, 51, 51));
+        textApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textApellidoKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 240, 30));
+
+        labelCorreo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelCorreo.setForeground(new java.awt.Color(51, 51, 51));
+        labelCorreo.setText("Correo");
+        jPanel1.add(labelCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, 30));
+
+        textCorreo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        textCorreo.setForeground(new java.awt.Color(51, 51, 51));
+        textCorreo.setToolTipText("");
+        textCorreo.setSelectionColor(new java.awt.Color(191, 232, 241));
+        textCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textCorreoActionPerformed(evt);
+            }
+        });
+        textCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textCorreoKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 240, 30));
+
+        labelTelefono.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelTelefono.setForeground(new java.awt.Color(51, 51, 51));
+        labelTelefono.setText("Telefono");
+        jPanel1.add(labelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, 30));
+
+        textTelefono.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        textTelefono.setForeground(new java.awt.Color(51, 51, 51));
+        textTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textTelefonoKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 240, 30));
+
+        btn_editarUsuario.setBackground(new java.awt.Color(0, 161, 199));
+        btn_editarUsuario.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btn_editarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btn_editarUsuario.setText("Editar");
+        jPanel1.add(btn_editarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 100, 30));
+
+        btn_limpiarUsuario.setBackground(new java.awt.Color(0, 161, 199));
+        btn_limpiarUsuario.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btn_limpiarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btn_limpiarUsuario.setText("Limpiar");
+        btn_limpiarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limpiarUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_limpiarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 160, 100, 30));
+
+        tablaUsuarios.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        tablaUsuarios.setForeground(new java.awt.Color(51, 51, 51));
+        tablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nombre", "Apellido", "Usuario", "Rol", "Estado"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaUsuarios.setRowHeight(30);
+        tablaUsuarios.setSelectionBackground(new java.awt.Color(191, 232, 241));
+        tablaUsuarios.getTableHeader().setResizingAllowed(false);
+        tablaUsuarios.getTableHeader().setReorderingAllowed(false);
+        jScrollUsuario.setViewportView(tablaUsuarios);
+
+        jPanel1.add(jScrollUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 1000, 380));
+
+        labelRol1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        labelRol1.setForeground(new java.awt.Color(51, 51, 51));
+        labelRol1.setText("Estado");
+        jPanel1.add(labelRol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, -1, 30));
+
+        comboEstado.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel1.add(comboEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, 190, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addComponent(jLabel1)
-                .addContainerGap(163, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(jLabel1)
-                .addContainerGap(176, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void textNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNombreActionPerformed
+
+    private void textNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNombreKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNombreKeyPressed
+
+    private void textNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNombreKeyTyped
+        //        if (textNombre.getText().length() >= 30) {
+            //            evt.consume();
+            //        }
+        //        if (!(Character.isLetter(evt.getKeyChar())) && !(evt.getKeyChar() == KeyEvent.VK_SPACE)) {
+            //            evt.consume();
+            //        }
+    }//GEN-LAST:event_textNombreKeyTyped
+
+    private void textApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textApellidoKeyTyped
+        //        if (textApellido.getText().length() >= 30) {
+            //            evt.consume();
+            //        }
+        //        if (!(Character.isLetter(evt.getKeyChar())) && !(evt.getKeyChar() == KeyEvent.VK_SPACE)) {
+            //            evt.consume();
+            //        }
+    }//GEN-LAST:event_textApellidoKeyTyped
+
+    private void textCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCorreoActionPerformed
+
+    }//GEN-LAST:event_textCorreoActionPerformed
+
+    private void textCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textCorreoKeyTyped
+        //        if (textCorreo.getText().length() >= 30) {
+            //            evt.consume();
+            //        }
+    }//GEN-LAST:event_textCorreoKeyTyped
+
+    private void textTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textTelefonoKeyTyped
+        if (textTelefono.getText().length() >= 15) {
+            evt.consume();
+        }
+        int key = evt.getKeyChar();
+        boolean numero = key >= 48 && key <= 57;
+        if (!numero) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textTelefonoKeyTyped
+
+    private void btn_limpiarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarUsuarioActionPerformed
+
+    }//GEN-LAST:event_btn_limpiarUsuarioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JButton btn_editarUsuario;
+    public javax.swing.JButton btn_limpiarUsuario;
+    public javax.swing.JComboBox<Object> comboEstado;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollUsuario;
+    private javax.swing.JLabel labelApellido;
+    private javax.swing.JLabel labelCorreo;
+    private javax.swing.JLabel labelNombre;
+    private javax.swing.JLabel labelRol1;
+    private javax.swing.JLabel labelTelefono;
+    public javax.swing.JTable tablaUsuarios;
+    public javax.swing.JTextField textApellido;
+    public javax.swing.JTextField textCorreo;
+    public javax.swing.JTextField textNombre;
+    public javax.swing.JTextField textTelefono;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,7 +6,7 @@ public class Sesion {
     private static Sesion instancia;
 
     private Usuario usuario;
-
+    
     private Sesion() {
     }
 
@@ -18,7 +18,7 @@ public class Sesion {
 
         return instancia;
     }
-
+    
     public Usuario getUsuario() {
         return usuario;
     }

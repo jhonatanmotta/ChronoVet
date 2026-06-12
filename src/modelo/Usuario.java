@@ -15,6 +15,7 @@ public class Usuario {
     private int idRol;
     private String rol;
     private LocalDateTime fechaRegistro;
+    private String estado;
 
     public Usuario() {
     }
@@ -40,6 +41,19 @@ public class Usuario {
         this.idRol = idRol;
         this.rol = rol;
         this.fechaRegistro = fechaRegistro;
+    }
+    
+     public Usuario(int idUsuario, String nombre, String apellido, String correo, String telefono, String password, int idRol, String rol, LocalDateTime fechaRegistro, String estado) {
+        this.idUsuario = idUsuario;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.password = password;
+        this.idRol = idRol;
+        this.rol = rol;
+        this.fechaRegistro = fechaRegistro;
+        this.estado = estado;
     }
 
     public int getIdUsuario() {
@@ -114,6 +128,12 @@ public class Usuario {
         this.fechaRegistro = fechaRegistro;
     }
 
-    
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
     
 }

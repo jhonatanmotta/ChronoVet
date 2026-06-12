@@ -26,7 +26,13 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
     }
     
-
+    public JMenuItem getDashboardInicial() {
+    return dashboardInicial;
+}
+    
+    public JMenuItem getCerrarSesion() {
+    return cerrarSesion;
+}
  
     public JMenuItem getRegistrarUsuario() {
     return registrarUsuario;
@@ -42,6 +48,10 @@ public class Menu extends javax.swing.JFrame {
         
     public JMenuItem getGestionarCitas() {
     return gestionarCitas;
+}
+    
+    public JMenuItem getRegistrarCita() {
+    return registrarCita;
 }
             
     public JPanel getPanelVistaPrincipal() {
@@ -67,23 +77,20 @@ public class Menu extends javax.swing.JFrame {
 
         panelVistaPrincipal = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        dashboardInicial = new javax.swing.JMenuItem();
+        cerrarSesion = new javax.swing.JMenuItem();
         menuUsuarios = new javax.swing.JMenu();
         registrarUsuario = new javax.swing.JMenuItem();
         gestionarUsuario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         gestionarMascota = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menuCitas = new javax.swing.JMenu();
+        registrarCita = new javax.swing.JMenuItem();
         gestionarCitas = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(1920, 1080));
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         panelVistaPrincipal.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -98,6 +105,16 @@ public class Menu extends javax.swing.JFrame {
             .addGap(0, 700, Short.MAX_VALUE)
         );
 
+        jMenu1.setText("Inicio");
+
+        dashboardInicial.setText("Dashboard Inicio");
+        jMenu1.add(dashboardInicial);
+
+        cerrarSesion.setText("Cerrar Sesion");
+        jMenu1.add(cerrarSesion);
+
+        jMenuBar1.add(jMenu1);
+
         menuUsuarios.setText("Usuarios");
 
         registrarUsuario.setText("Registrar Usuario");
@@ -110,32 +127,20 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu2.setText("Mascotas");
 
-        jMenuItem1.setText("Registrar Mascosta");
-        jMenu2.add(jMenuItem1);
-
         gestionarMascota.setText("Gestionar Mascotas");
         jMenu2.add(gestionarMascota);
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Citas");
+        menuCitas.setText("Citas");
 
-        jMenuItem3.setText("Agendar Cita");
-        jMenu3.add(jMenuItem3);
+        registrarCita.setText("Agendar Cita");
+        menuCitas.add(registrarCita);
 
         gestionarCitas.setText("Gestionar Citas");
-        jMenu3.add(gestionarCitas);
+        menuCitas.add(gestionarCitas);
 
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Consultas");
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("Veterinarios");
-        jMenuBar1.add(jMenu5);
-
-        jMenu6.setText("Configuracion");
-        jMenuBar1.add(jMenu6);
+        jMenuBar1.add(menuCitas);
 
         setJMenuBar(jMenuBar1);
 
@@ -189,19 +194,18 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem cerrarSesion;
+    private javax.swing.JMenuItem dashboardInicial;
     private javax.swing.JMenuItem gestionarCitas;
     private javax.swing.JMenuItem gestionarMascota;
     public javax.swing.JMenuItem gestionarUsuario;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenu menuCitas;
     private javax.swing.JMenu menuUsuarios;
     public javax.swing.JPanel panelVistaPrincipal;
+    private javax.swing.JMenuItem registrarCita;
     public javax.swing.JMenuItem registrarUsuario;
     // End of variables declaration//GEN-END:variables
 }

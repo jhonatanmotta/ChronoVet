@@ -1,5 +1,8 @@
 package vista;
 
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 public class Login extends javax.swing.JFrame {
 
     public Login() {
@@ -8,9 +11,16 @@ public class Login extends javax.swing.JFrame {
         this.setTitle("Iniciar Sesión - ChronoVet");
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        System.out.println("LOGIN INSTANCE: " + this);
     }
 
+    public JPasswordField getTextPassword() {
+        return txt_password;
+    }
+    
+    public JTextField getTextCorreo() {
+        return txt_correo;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,6 +60,7 @@ public class Login extends javax.swing.JFrame {
 
         txt_correo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txt_correo.setForeground(new java.awt.Color(51, 51, 51));
+        txt_correo.setText("carlos@gmail.com");
         txt_correo.setBorder(null);
         txt_correo.setPreferredSize(new java.awt.Dimension(180, 30));
         txt_correo.addActionListener(new java.awt.event.ActionListener() {
@@ -64,6 +75,7 @@ public class Login extends javax.swing.JFrame {
 
         txt_password.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txt_password.setForeground(new java.awt.Color(51, 51, 51));
+        txt_password.setText("1234");
         txt_password.setBorder(null);
         txt_password.setPreferredSize(new java.awt.Dimension(180, 30));
         txt_password.addKeyListener(new java.awt.event.KeyAdapter() {

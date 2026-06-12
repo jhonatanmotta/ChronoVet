@@ -39,8 +39,8 @@ public class Ctrl_login implements ActionListener, KeyListener {
     }
 
     public void iniciarSesion() {
-        String correo = log.txt_correo.getText().trim();
-        String password = String.valueOf(log.txt_password.getPassword()).trim();
+        String correo = log.getTextCorreo().getText().trim();
+        String password = String.valueOf(log.getTextPassword().getPassword()).trim();
 
         if (correo.equals("") || password.equals("")) {
             JOptionPane.showMessageDialog(null,
@@ -53,6 +53,7 @@ public class Ctrl_login implements ActionListener, KeyListener {
         Usuario usuarioAutenticado = UsuarioDAO.autenticarUsuario(correo, password);
 
         if (usuarioAutenticado != null) {
+            
             Sesion sesion = Sesion.getInstancia();
 
             sesion.setUsuario(
