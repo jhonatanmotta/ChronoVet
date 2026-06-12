@@ -191,12 +191,12 @@ public class Ctrl_Cita {
 
         try {
 
-            // 1. Obtener valores de los combos
+            // Obtener valores de los combos
             ComboBox mascotaSel = (ComboBox) vista.getComboMascota().getSelectedItem();
             ComboBox especialidadSel = (ComboBox) vista.getComboEspecialidad().getSelectedItem();
             String horaSel = (String) vista.getComboHora().getSelectedItem();
 
-            // 2. Validaciones básicas
+            // Validaciones basicas
             if (mascotaSel == null || mascotaSel.getId() == 0
                     || especialidadSel == null || especialidadSel.getId() == 0
                     || horaSel.equals("Seleccione una hora")
@@ -206,7 +206,7 @@ public class Ctrl_Cita {
                 return;
             }
 
-            // 3. IDs
+            // IDs
             int idMascota = mascotaSel.getId();
             int idEspecialidad = especialidadSel.getId();
             int idUsuario;
@@ -229,7 +229,7 @@ public class Ctrl_Cita {
                 idUsuario = mascota.getIdDueno();
             }
 
-            // 4. Fecha + hora (JDateChooser + combo hora)
+            // Fecha + hora: JDateChooser + combo hora
             java.util.Date fechaBase = vista.getDateFecha().getDate();
 
             int hora = Integer.parseInt(horaSel.split(":")[0]);
@@ -252,7 +252,7 @@ public class Ctrl_Cita {
                 return;
             }
 
-            // 5. Motivo
+            // Motivo
             String motivo = vista.getTextMotivo().getText();
 
             if (motivo.trim().isEmpty()) {
@@ -260,7 +260,7 @@ public class Ctrl_Cita {
                 return;
             }
 
-            // 6. Crear objeto Cita
+            // Crear objeto Cita
             Cita cita = new Cita();
             cita.setIdUsuario(idUsuario);
             cita.setIdMascota(idMascota);
@@ -268,7 +268,7 @@ public class Ctrl_Cita {
             cita.setFechaHora(fechaHora);
             cita.setMotivoConsulta(motivo);
 
-            // 7. Llamar al DAO (SP)
+            // Llamar al DAO
             CitaDAO dao = new CitaDAO();
             RespuestaCita resp = dao.registrar(cita);
 
@@ -337,4 +337,12 @@ public class Ctrl_Cita {
         });
     }
 }
+    
+    public void cargarDatos() {
+
+    llenarComboMascotas();
+
+    limpiarCampos();
+}
+    
 }

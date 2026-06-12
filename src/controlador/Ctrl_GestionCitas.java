@@ -13,8 +13,7 @@ import modelo.Usuario;
 import modelo.VeterinarioDAO;
 import utils.Sesion;
 import vista.Panel_GestionarCitas;
-//tengo comentado el estado se debe borrar luego recordar que es para que se 
-//llene el estado al seleccionar una cita
+import vista.Panel_RegistrarConsulta;
 
 public class Ctrl_GestionCitas {
 
@@ -331,21 +330,68 @@ if (!estado.equalsIgnoreCase("pendiente")) {
 
     private void realizarConsulta() {
 
-        if (idCitaSeleccionada == -1) {
-
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Seleccione una cita"
-            );
-
-            return;
-        }
-
+ if (idCitaSeleccionada == -1) {
         JOptionPane.showMessageDialog(
-                null,
-                "Aquí se abrirá el módulo de consultas.\nID Cita: "
-                + idCitaSeleccionada
+                vista,
+                "Seleccione una cita",
+                "Atención",
+                JOptionPane.WARNING_MESSAGE
         );
+        return;
+    }
+
+    // Obtener el estado de la cita desde el campo de texto
+    String estado = vista.getTextEstado().getText();
+    
+    if (!estado.equalsIgnoreCase("pendiente")) {
+        JOptionPane.showMessageDialog(
+                vista,
+                "Solo se pueden atender citas en estado pendiente.\n" +
+                "La cita seleccionada está: " + estado,
+                "Acción no permitida",
+                JOptionPane.WARNING_MESSAGE
+        );
+        return;
+    }
+
+    // Verificar que el veterinario logueado sea el asignado
+    String veterinarioAsignado = vista.getTextVeterinario().getText();
+    String veterinarioLogueado = usuarioActual.getNombre() + " " + usuarioActual.getApellido();
+    
+    if (!veterinarioAsignado.equals(veterinarioLogueado)) {
+        JOptionPane.showMessageDialog(
+                vista,
+                "Solo el veterinario asignado puede atender esta cita.\n" +
+                "Veterinario asignado: " + veterinarioAsignado,
+                "Acceso denegado",
+                JOptionPane.ERROR_MESSAGE
+        );
+        return;
+    }
+
+    // Usar JDialog para mostrar el panel de registro de consulta
+    java.awt.Frame parent = (java.awt.Frame) javax.swing.SwingUtilities.getWindowAncestor(vista);
+    javax.swing.JDialog dialog = new javax.swing.JDialog(parent, "Registrar Consulta Médica", true);
+    
+    // Crear el panel con los parametros necesarios
+    Panel_RegistrarConsulta panelConsulta = new Panel_RegistrarConsulta(
+        idCitaSeleccionada,
+        () -> {
+            // Callback: cuando se registre o cancele exitosamente
+            dialog.dispose();        // Cerrar el diálogo
+            recargarTabla();         // Recargar la tabla de citas
+            limpiarCampos();         // Limpiar campos del formulario
+            JOptionPane.showMessageDialog(vista,
+                "La lista de citas ha sido actualizada.",
+                "Actualización",
+                JOptionPane.INFORMATION_MESSAGE);
+        }
+    );
+    
+    dialog.add(panelConsulta);
+    dialog.setSize(1050, 750);
+    dialog.setLocationRelativeTo(vista);
+    dialog.setVisible(true);
     }
 
     private void limpiarCampos() {
@@ -385,5 +431,6 @@ if (!estado.equalsIgnoreCase("pendiente")) {
     
     public void recargarTabla() {
     cargarTabla();
+    
 }
 }

@@ -31,21 +31,16 @@ public class Ctrl_Mascota implements ActionListener {
         this.vista = vista;
         this.usuarioSesion = usuarioSesion;
 
-        // Botones
         this.vista.getBtn_resgistrarMascota().addActionListener(this);
         this.vista.getBtn_actualizarMascota().addActionListener(this);
         this.vista.getBtn_limpiarMascota().addActionListener(this);
 
-        // JTable click
         this.vista.getTablaMascotas().addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 cargarSeleccionTabla();
             }
         });
 
-        //configurarVistaPorRol();
-        //cargarComboEspecie();
-        //cargarComboUsuarios();
         cargarTabla();
         llenarComboEspecie();
         configurarVistaPorRol();
@@ -90,7 +85,7 @@ public class Ctrl_Mascota implements ActionListener {
         // Quitar selección de la tabla
         vista.getTablaMascotas().clearSelection();
 
-        // Opcional: devolver el foco al campo nombre
+        // Devolver el foco al campo nombre
         vista.getTextNombre().requestFocus();
     }
 

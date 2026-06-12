@@ -54,18 +54,15 @@ public class Ctrl_login implements ActionListener, KeyListener {
 
         if (usuarioAutenticado != null) {
             
-            Sesion sesion = Sesion.getInstancia();
-
-            sesion.setUsuario(
-                    usuarioAutenticado
-            );
+            Sesion.getInstancia().cerrarSesion();
+            Sesion.getInstancia().setUsuario(usuarioAutenticado);
 
             log.dispose();
 
             Menu menu = new Menu();
             Ctrl_menu ctrlMenu = new Ctrl_menu(menu);
             menu.setVisible(true);
-
+            menu.setLocationRelativeTo(null);
         } else {
 
             JOptionPane.showMessageDialog(

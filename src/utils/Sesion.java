@@ -4,7 +4,7 @@ import modelo.Usuario;
 
 public class Sesion {
     private static Sesion instancia;
-
+    
     private Usuario usuario;
     
     private Sesion() {
@@ -28,6 +28,6 @@ public class Sesion {
     }
 
     public void cerrarSesion() {
-        usuario = null;
+        this.usuario = null;
     }
 }

@@ -4,11 +4,14 @@
  */
 package vista;
 
+import controlador.Ctrl_login;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import utils.Sesion;
 
 /**
  *
@@ -62,10 +65,44 @@ public class Menu extends javax.swing.JFrame {
     return menuUsuarios;
 }
     
-
-
+private void btnCerrarSesionActionPerformed() {
+    int confirm = JOptionPane.showConfirmDialog(
+        this,
+        "¿Está seguro que desea cerrar la sesión?",
+        "Confirmar cierre de sesión",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE
+    );
     
-    
+    if (confirm == JOptionPane.YES_OPTION) {
+        try {
+            // 1. Cerrar la sesión
+            Sesion.getInstancia().cerrarSesion();
+            
+            System.out.println("Sesión cerrada correctamente");
+            
+            // 2. Cerrar el menú actual
+            this.dispose();
+            
+            // 3. Crear una NUEVA ventana de login con su controlador
+            java.awt.EventQueue.invokeLater(() -> {
+                Login login = new Login();
+                Ctrl_login controladorLogin = new Ctrl_login(login);
+                login.setVisible(true);
+                login.setLocationRelativeTo(null);
+            });
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                this,
+                "Error al cerrar sesión: " + e.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
+            e.printStackTrace();
+        }
+    }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,6 +148,11 @@ public class Menu extends javax.swing.JFrame {
         jMenu1.add(dashboardInicial);
 
         cerrarSesion.setText("Cerrar Sesion");
+        cerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrarSesionActionPerformed(evt);
+            }
+        });
         jMenu1.add(cerrarSesion);
 
         jMenuBar1.add(jMenu1);
@@ -157,6 +199,10 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionActionPerformed
+        btnCerrarSesionActionPerformed();     // TODO add your handling code here:
+    }//GEN-LAST:event_cerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments

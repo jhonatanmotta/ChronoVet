@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
 import conexion.Conexion;
@@ -17,9 +13,6 @@ import java.util.List;
  */
 public class UsuarioDAO {
 
-//    private static Connection conexion = Conexion.conectar();
-//    private static PreparedStatement ps = null;
-//    private static ResultSet retorno;
     public static Usuario autenticarUsuario(String correo, String password) {
 
         Usuario usuario = null;
@@ -83,7 +76,6 @@ public class UsuarioDAO {
         try {
             PreparedStatement ps = con.prepareStatement(sql);
 
-//            ps = con.prepareStatement(sql);
             ps.setString(1, user.getNombre());
             ps.setString(2, user.getApellido());
             ps.setString(3, user.getCorreo());

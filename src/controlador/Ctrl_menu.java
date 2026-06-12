@@ -10,6 +10,7 @@ import java.awt.event.MouseListener;
 import modelo.Usuario;
 import utils.Sesion;
 import vista.Menu;
+import vista.Panel_DashboardInicial;
 import vista.Panel_GestionarCitas;
 import vista.Panel_GestionarMascotas;
 import vista.Panel_GestionarUsuarios;
@@ -29,6 +30,10 @@ public class Ctrl_menu {
     private Panel_GestionarMascotas panelGestionarMascotas;
 
     private Panel_GestionarCitas panelGestionarCitas;
+    
+    private Panel_DashboardInicial panelDashboard;
+    
+    private Ctrl_Dashboard ctrlDashboard;
 
     private Ctrl_usuario ctrlUsuario;
 
@@ -95,6 +100,11 @@ public class Ctrl_menu {
         ctrlCita
                 = new Ctrl_Cita(panelRegistrarCitas);
 
+        panelDashboard
+                = new Panel_DashboardInicial();
+        
+        ctrlDashboard = new Ctrl_Dashboard(panelDashboard);
+        
         menu.getPanelVistaPrincipal()
                 .add(panelRegistrarUsuario,
                         "REGISTRAR_USUARIO");
@@ -114,6 +124,10 @@ public class Ctrl_menu {
         menu.getPanelVistaPrincipal()
                 .add(panelRegistrarCitas,
                         "REGISTRAR_CITA");
+        
+        menu.getPanelVistaPrincipal()
+                .add(panelDashboard,
+                        "DASHBOARD");
     }
 
     private void iniciarEventos() {
@@ -141,6 +155,11 @@ public class Ctrl_menu {
         menu.getRegistrarCita()
                 .addActionListener(
                         e -> mostrarRegistrarCita()
+                );
+        
+        menu.getDashboardInicial()
+                .addActionListener(
+                        e -> mostrarDashboard()
                 );
     }
 
@@ -172,6 +191,8 @@ public class Ctrl_menu {
     }
 
     private void mostrarRegistrarCita() {
+        
+        ctrlCita.cargarDatos();
         cardLayout.show(
                 menu.getPanelVistaPrincipal(),
                 "REGISTRAR_CITA"
@@ -185,6 +206,18 @@ public class Ctrl_menu {
         cardLayout.show(
                 menu.getPanelVistaPrincipal(),
                 "GESTION_CITAS"
+        );
+    }
+    
+    private void mostrarDashboard() {
+        
+        if (ctrlDashboard != null) {
+            ctrlDashboard.refrescarDashboard();
+        }
+        
+        cardLayout.show(
+                menu.getPanelVistaPrincipal(),
+                "DASHBOARD"
         );
     }
 

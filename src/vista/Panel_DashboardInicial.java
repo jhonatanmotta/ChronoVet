@@ -4,6 +4,8 @@
  */
 package vista;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author jhona
@@ -16,6 +18,10 @@ public class Panel_DashboardInicial extends javax.swing.JPanel {
     public Panel_DashboardInicial() {
         initComponents();
     }
+    
+    public JPanel getPanelContenedor() {
+        return panelContenedor;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,30 +32,26 @@ public class Panel_DashboardInicial extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelContenedor = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("Dashboard");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(459, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(384, 384, 384))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(178, 178, 178)
-                .addComponent(jLabel1)
-                .addContainerGap(356, Short.MAX_VALUE))
-        );
+        panelContenedor.setBackground(new java.awt.Color(204, 204, 204));
+        panelContenedor.setPreferredSize(new java.awt.Dimension(700, 400));
+        panelContenedor.setLayout(new java.awt.BorderLayout());
+        add(panelContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Variable", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel1.setText("Metricas");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel panelContenedor;
     // End of variables declaration//GEN-END:variables
 }
