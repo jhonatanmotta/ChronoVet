@@ -162,6 +162,8 @@ src/main/Main.java
 
 > `src/documentacion/Diagrama ER.png`
 
+> **📌 Nota:** La imagen del diagrama entidad-relación mostrada arriba se encuentra desactualizada y no incluye todas las tablas implementadas en el sistema. Para ver la estructura completa y actualizada de la base de datos, consulte el archivo `db/veterinaria_db.sql` que contiene el script completo con todas las tablas, relaciones, restricciones y procedimientos almacenados del sistema.
+
 ### Modelo de Datos
 
 | Tabla | Descripción |
