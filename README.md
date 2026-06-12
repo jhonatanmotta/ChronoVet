@@ -250,17 +250,17 @@ ChronoVet/
 
 ## 🚀 Funcionalidades Implementadas
 
--✅ Autenticación de usuarios con roles
--✅ CRUD completo de usuarios (Administrador)
--✅ CRUD de mascotas
--✅ Agendamiento de citas con validación de horario
--✅ Asignación automática de veterinarios disponibles
--✅ Registro de consultas médicas
--✅ Cancelación de citas (mínimo 3 horas de anticipación)
--✅ Dashboards dinámicos por rol
--✅ Auditoría de cambios en citas
--✅ Manejo de ausencias de veterinarios
--✅ Validación de límite de 3 citas por día por usuario
+- ✅ Autenticación de usuarios con roles
+- ✅ CRUD completo de usuarios (Administrador)
+- ✅ CRUD de mascotas
+- ✅ Agendamiento de citas con validación de horario
+- ✅ Asignación automática de veterinarios disponibles
+- ✅ Registro de consultas médicas
+- ✅ Cancelación de citas (mínimo 3 horas de anticipación)
+- ✅ Dashboards dinámicos por rol
+- ✅ Auditoría de cambios en citas
+- ✅ Manejo de ausencias de veterinarios
+- ✅ Validación de límite de 3 citas por día por usuario
 
 ---
 
@@ -285,7 +285,7 @@ ChronoVet/
 
 ### Pantalla de Inicio de Sesión
 
-![Login ChronoVet](src/documentacion/Login_ChronoVet.png)
+![Login ChronoVet](src/documentacion/Login%20ChronoVet.png)
 
 ---
 
@@ -305,9 +305,9 @@ Su propósito principal es el aprendizaje y aplicación de conceptos relacionado
 
 ## 👨‍💻 Autor
 
-### Jhonatan David Motta Medina
+### Jhonatan Motta
 
-- GitHub: :contentReference[oaicite:0]{index=0}
+[jhonatanmotta](https://github.com/jhonatanmotta)
 
 ---
 
